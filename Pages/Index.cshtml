@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@Model.Mensaje
+
+    <table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Pass</th>
+    </tr>
+        @foreach (var item in Model.users)
+        {
+        <tr>
+            <td> @item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Contrasenia</td>
+        </tr>
+        }
+    </table>
+    <form action="POST" method="/consultUserId">
+        <label for="ID">ID:</label><br>
+        <input type="text" id="id" name="id"><br>
+ 
+        <input type="submit" value="Submit">
+    </form>
